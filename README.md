@@ -28,7 +28,7 @@ Originally based on Shopify's Marketplace Kit, this application has been adapted
 
 **Requirements:**
 
-- Node.js 18+ (see `.nvmrc`)
+- Node.js 24+ (see `.nvmrc`)
 - [yarn](https://yarnpkg.com/en/)
 - Backend API server running at configured endpoint
 

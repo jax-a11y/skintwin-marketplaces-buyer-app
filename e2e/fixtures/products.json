@@ -1,0 +1,223 @@
+{
+  "products": [
+    {
+      "id": "gid://shopify/Product/1",
+      "handle": "hydrating-serum",
+      "title": "Hydrating Serum",
+      "description": "A deeply hydrating serum with hyaluronic acid for all skin types.",
+      "productType": "Skincare",
+      "vendor": "SkinGlow Essentials",
+      "tags": ["serum", "hydrating", "anti-aging"],
+      "images": {
+        "edges": [
+          {
+            "node": {
+              "id": "gid://shopify/ProductImage/1",
+              "altText": "Hydrating Serum bottle",
+              "originalSrc": "https://cdn.shopify.com/s/files/1/0000/0001/products/serum.jpg"
+            }
+          }
+        ]
+      },
+      "priceRange": {
+        "minVariantPrice": {
+          "amount": "49.99",
+          "currencyCode": "USD"
+        },
+        "maxVariantPrice": {
+          "amount": "49.99",
+          "currencyCode": "USD"
+        }
+      },
+      "variants": {
+        "edges": [
+          {
+            "node": {
+              "id": "gid://shopify/ProductVariant/1",
+              "title": "30ml",
+              "priceV2": {
+                "amount": "49.99",
+                "currencyCode": "USD"
+              },
+              "availableForSale": true,
+              "selectedOptions": [
+                { "name": "Size", "value": "30ml" }
+              ],
+              "image": {
+                "originalSrc": "https://cdn.shopify.com/s/files/1/0000/0001/products/serum.jpg",
+                "altText": "Hydrating Serum 30ml"
+              }
+            }
+          }
+        ]
+      },
+      "onlineStoreUrl": "https://skinglow-essentials.myshopify.com/products/hydrating-serum"
+    },
+    {
+      "id": "gid://shopify/Product/2",
+      "handle": "vitamin-c-brightening-cream",
+      "title": "Vitamin C Brightening Cream",
+      "description": "Brighten and even your skin tone with this powerful vitamin C formula.",
+      "productType": "Skincare",
+      "vendor": "SkinGlow Essentials",
+      "tags": ["cream", "brightening", "vitamin-c"],
+      "images": {
+        "edges": [
+          {
+            "node": {
+              "id": "gid://shopify/ProductImage/2",
+              "altText": "Vitamin C Cream jar",
+              "originalSrc": "https://cdn.shopify.com/s/files/1/0000/0001/products/vitc-cream.jpg"
+            }
+          }
+        ]
+      },
+      "priceRange": {
+        "minVariantPrice": {
+          "amount": "39.99",
+          "currencyCode": "USD"
+        },
+        "maxVariantPrice": {
+          "amount": "69.99",
+          "currencyCode": "USD"
+        }
+      },
+      "variants": {
+        "edges": [
+          {
+            "node": {
+              "id": "gid://shopify/ProductVariant/2a",
+              "title": "50ml",
+              "priceV2": {
+                "amount": "39.99",
+                "currencyCode": "USD"
+              },
+              "availableForSale": true,
+              "selectedOptions": [
+                { "name": "Size", "value": "50ml" }
+              ],
+              "image": {
+                "originalSrc": "https://cdn.shopify.com/s/files/1/0000/0001/products/vitc-cream.jpg",
+                "altText": "Vitamin C Cream 50ml"
+              }
+            }
+          },
+          {
+            "node": {
+              "id": "gid://shopify/ProductVariant/2b",
+              "title": "100ml",
+              "priceV2": {
+                "amount": "69.99",
+                "currencyCode": "USD"
+              },
+              "availableForSale": true,
+              "selectedOptions": [
+                { "name": "Size", "value": "100ml" }
+              ],
+              "image": {
+                "originalSrc": "https://cdn.shopify.com/s/files/1/0000/0001/products/vitc-cream-lg.jpg",
+                "altText": "Vitamin C Cream 100ml"
+              }
+            }
+          }
+        ]
+      },
+      "onlineStoreUrl": "https://skinglow-essentials.myshopify.com/products/vitamin-c-brightening-cream"
+    },
+    {
+      "id": "gid://shopify/Product/3",
+      "handle": "retinol-night-treatment",
+      "title": "Retinol Night Treatment",
+      "description": "Advanced retinol formula for overnight skin renewal.",
+      "productType": "Skincare",
+      "vendor": "Beauty Science Lab",
+      "tags": ["retinol", "anti-aging", "night-treatment"],
+      "images": {
+        "edges": [
+          {
+            "node": {
+              "id": "gid://shopify/ProductImage/3",
+              "altText": "Retinol Night Treatment",
+              "originalSrc": "https://cdn.shopify.com/s/files/1/0000/0001/products/retinol.jpg"
+            }
+          }
+        ]
+      },
+      "priceRange": {
+        "minVariantPrice": {
+          "amount": "79.99",
+          "currencyCode": "USD"
+        },
+        "maxVariantPrice": {
+          "amount": "79.99",
+          "currencyCode": "USD"
+        }
+      },
+      "variants": {
+        "edges": [
+          {
+            "node": {
+              "id": "gid://shopify/ProductVariant/3",
+              "title": "30ml",
+              "priceV2": {
+                "amount": "79.99",
+                "currencyCode": "USD"
+              },
+              "availableForSale": false,
+              "selectedOptions": [
+                { "name": "Size", "value": "30ml" }
+              ],
+              "image": {
+                "originalSrc": "https://cdn.shopify.com/s/files/1/0000/0001/products/retinol.jpg",
+                "altText": "Retinol Night Treatment 30ml"
+              }
+            }
+          }
+        ]
+      },
+      "onlineStoreUrl": "https://beauty-science.myshopify.com/products/retinol-night-treatment"
+    },
+    {
+      "id": "gid://shopify/Product/4",
+      "handle": "gentle-cleanser",
+      "title": "Gentle Foaming Cleanser",
+      "description": "A gentle, pH-balanced cleanser suitable for sensitive skin.",
+      "productType": "Cleanser",
+      "vendor": "Derma Naturals",
+      "tags": ["cleanser", "gentle", "sensitive-skin"],
+      "images": {
+        "edges": []
+      },
+      "priceRange": {
+        "minVariantPrice": {
+          "amount": "24.99",
+          "currencyCode": "CAD"
+        },
+        "maxVariantPrice": {
+          "amount": "24.99",
+          "currencyCode": "CAD"
+        }
+      },
+      "variants": {
+        "edges": [
+          {
+            "node": {
+              "id": "gid://shopify/ProductVariant/4",
+              "title": "150ml",
+              "priceV2": {
+                "amount": "24.99",
+                "currencyCode": "CAD"
+              },
+              "availableForSale": true,
+              "selectedOptions": [
+                { "name": "Size", "value": "150ml" }
+              ],
+              "image": null
+            }
+          }
+        ]
+      },
+      "onlineStoreUrl": "https://derma-naturals.myshopify.com/products/gentle-cleanser"
+    }
+  ]
+}

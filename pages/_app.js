@@ -2,10 +2,11 @@ import '../styles/globals.css'
 import ApolloClient, { InMemoryCache } from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import { createTheme, ThemeProvider } from "@mui/material";
+import { GRAPHQL_ENDPOINT } from "../lib/config";
 
 function MarketplaceProvider(props) {
   const client = new ApolloClient({
-    uri: `http://localhost:8081/graphql`,
+    uri: GRAPHQL_ENDPOINT,
     cache: new InMemoryCache(),
   });
 

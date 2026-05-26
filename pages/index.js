@@ -21,6 +21,7 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import { getCartCount } from "../helpers/cartHelpers";
 import { Page, ProductGrid } from "../components";
+import { getStorefrontApiUrl } from "../lib/config";
 
 const allCountries = "All";
 
@@ -127,7 +128,7 @@ const ShopSection = ({ id, domain, storefrontAccessToken }) => {
   useEffect(() => {
     async function fetchData() {
       const client = new ApolloClient({
-        uri: `https://${domain}/api/2021-10/graphql.json`,
+        uri: getStorefrontApiUrl(domain),
         headers: {
           "X-Shopify-Storefront-Access-Token": storefrontAccessToken,
         },

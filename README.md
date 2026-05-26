@@ -1,23 +1,26 @@
-<h1 align="center">Shopify Buyer-Facing Marketplace App</h1>
+<h1 align="center">SkinTwin Marketplaces Buyer App</h1>
 
 <p align="center">
-  <a href="https://github.com/Shopify/shopify-marketplaces-buyer-app/releases">
-    <img src="https://img.shields.io/github/issues/Shopify/shopify-marketplaces-buyer-app/total?style=for-the-badge&logo=Shopify">
+  <a href="https://github.com/skintwin-ai/skintwin-marketplaces-buyer-app/actions/workflows/ci.yml">
+    <img src="https://github.com/skintwin-ai/skintwin-marketplaces-buyer-app/actions/workflows/ci.yml/badge.svg" alt="CI Status">
   </a>
-  <a href="https://github.com/Shopify/shopify-marketplaces-buyer-app/issues&color=brightgreen">
-    <img src="https://img.shields.io/github/stars/Shopify/shopify-marketplaces-buyer-app?style=for-the-badge&logo=Shopify">
+  <a href="https://github.com/skintwin-ai/skintwin-marketplaces-buyer-app/actions/workflows/e2e-full.yml">
+    <img src="https://github.com/skintwin-ai/skintwin-marketplaces-buyer-app/actions/workflows/e2e-full.yml/badge.svg" alt="E2E Status">
   </a>
 </p>
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). It connects to the [`Shopify Merchant-Facing Channel App`](https://github.com/Shopify/shopify-marketplaces-admin-app) using [GraphQL](https://graphql.org/). It is an example of a simple buyer-side client application that can be used to get started quickly with marketplaces. The code in this repo comes directly from Marketplace Kit tutorials on [https://shopify.dev/marketplaces](https://shopify.dev/marketplaces) and be used as a springboard starting point for development of a buyer facing marketplace.
+A buyer-facing marketplace application for the **SkinTwin AI** beauty-tech ecosystem. Built with [Next.js](https://nextjs.org/), this app enables discovery and purchase of skincare products from multiple shops.
+
+Originally based on Shopify's Marketplace Kit, this application has been adapted for the skintwin-ai organization with comprehensive CI/CD pipelines and an exhaustive E2E test suite.
 
 ---
 
 - [1. Getting Started](#1-getting-started)
-- [2. Overview of Code Structure](#2-overview-of-code-structure)
-- [3. How to use this repo (including tutorial links & files modified)](#3-how-to-use-this-repo)
-- [4. Key Tech](#4-key-tech)
-- [5. License](#5-license)
+- [2. Testing](#2-testing)
+- [3. CI/CD Workflows](#3-cicd-workflows)
+- [4. Code Structure](#4-code-structure)
+- [5. Key Tech](#5-key-tech)
+- [6. License](#6-license)
 
 ---
 
@@ -25,49 +28,90 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 **Requirements:**
 
-- [yarn](https://yarnpkg.com/en/) - Checkout [`this branch`](#) for npm-specific setup instructions 
-- [`Setup the merchant-facing app`](https://github.com/Shopify/shopify-marketplaces-admin-app), this is where we get data to hydrate our client
-- Ensure you have [NodeJS](https://nodejs.org/en/) installed on your system.
+- Node.js 18+ (see `.nvmrc`)
+- [yarn](https://yarnpkg.com/en/)
+- Backend API server running at configured endpoint
 
 **Clone this repository:**
 
 ```bash
-git clone https://github.com/Shopify/shopify-marketplaces-buyer-app
+git clone https://github.com/skintwin-ai/skintwin-marketplaces-buyer-app
+cd skintwin-marketplaces-buyer-app
+```
+
+**Set up environment:**
+
+```bash
+cp .env.local.example .env.local
+# Edit .env.local with your API endpoint
 ```
 
 **Install dependencies:**
 
 ```bash
-yarn
+yarn install
 ```
 
-**Run local development server:**
+**Run development server:**
+
 ```bash
 yarn dev
 ```
 
-**Change graphql uri:**
+**Open in browser:**
 
-We connect to the merchant-facing-app to retrieve important information like shop name and storefront access token. To do this we connect to the merchant-facing-app graphql endpoint. By default this is set to `uri: http://localhost:8081/graphql` but you can change it to whatever port your merchant facing app is running on. To do this edit line 129 in /pages/cart/index.js line 129.
+Open [http://localhost:3000](http://localhost:3000) to view the marketplace.
 
+## 2. Testing
 
-```js
-const client = new ApolloClient({
-    uri: `http://localhost:8081/graphql`,
-    ...
-});
+This project includes comprehensive test coverage with both unit tests and E2E tests.
+
+### Unit Tests (Vitest)
+
+```bash
+# Run tests in watch mode
+yarn test
+
+# Run tests once
+yarn test:run
+
+# Run with coverage
+yarn test:coverage
 ```
 
+### E2E Tests (Playwright)
 
-**Open marketplace in browser:**
+```bash
+# Run all E2E tests
+yarn test:e2e
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-  
+# Run with UI mode
+yarn test:e2e:ui
 
+# Run headed (visible browser)
+yarn test:e2e:headed
 
-## 2. Overview of Code Structure
+# Debug mode
+yarn test:e2e:debug
 
-Familiarize yourself with the code structure for the buyer-facing app, to help you add all additional features that will be required, it is a great way to get started! It follows Next project conventions. 
+# View test report
+yarn test:e2e:report
+```
+
+For more details, see [TESTING.md](./TESTING.md).
+
+## 3. CI/CD Workflows
+
+| Workflow | Trigger | Purpose |
+|----------|---------|---------|
+| `ci.yml` | PRs, push to main | Lint, build, unit tests |
+| `e2e-smoke.yml` | PRs | Quick Chromium E2E smoke tests |
+| `e2e-full.yml` | Push to main, daily schedule | Cross-browser E2E matrix |
+| `release-gate.yml` | Manual dispatch | Full validation for deployments |
+
+## 4. Code Structure
+
+Familiarize yourself with the code structure for the buyer-facing app.
 
 <table>
   <caption>Code structure</caption>
@@ -77,82 +121,48 @@ Familiarize yourself with the code structure for the buyer-facing app, to help y
   </tr>
   <tr>
     <td><code>pages/*</code></td>
-    <td>
-
-All the routes of your [`Next.js`](https://nextjs.org/docs/getting-started) application will be placed in this directory. 
-
-</td>
-</tr>
-    <tr>
+    <td>All Next.js routes and page components.</td>
+  </tr>
+  <tr>
     <td><code>components/*</code></td>
-    <td>Contains common React components that are used in multiple places in the app. </td>
+    <td>Reusable React components used across pages.</td>
+  </tr>
+  <tr>
+    <td><code>helpers/*</code></td>
+    <td>Utility functions (cart operations, etc.).</td>
+  </tr>
+  <tr>
+    <td><code>lib/*</code></td>
+    <td>Configuration and API setup.</td>
+  </tr>
+  <tr>
+    <td><code>tests/*</code></td>
+    <td>Unit tests (Vitest + React Testing Library).</td>
+  </tr>
+  <tr>
+    <td><code>e2e/*</code></td>
+    <td>End-to-end tests (Playwright).</td>
   </tr>
   <tr>
     <td><code>public/*</code></td>
-    <td>
-    
-[`Explained here`](https://nextjs.org/docs/basic-features/static-file-serving): Statically serve files like robots.txt and favicon.ico.  
-    
-</td>
+    <td>Static assets (images, favicon, etc.).</td>
   </tr>
   <tr>
-    <td><code>styles/*</code></td>
-    <td>CSS in this directory.</td>
-  </tr>
-  </tr>
-  <tr>
-    <td><code>.eslintrc.json</code></td>
-    <td>Defines the configuration structure for ESLint as JSON.</td>
-  </tr>
-    <td><code>next.config.js</code></td>
-    <td>Configuration file for your Next project.</td>
-  </tr>
-  <tr>
-    <td><code>.gitignore</code></td>
-    <td>Tells Git which files to ignore whe commiting to your project.</td>
-  </tr>
-  <tr>
-    <td><code>package.json</code></td>
-    <td>Records important metadata about a project, heart of Node project.</td>
-  </tr>
-  <tr>
-    <td><code>yarn.lock</code></td>
-    <td>Lockfile is generated according to the contents of package.json.</td>
+    <td><code>.github/workflows/*</code></td>
+    <td>CI/CD pipeline definitions.</td>
   </tr>
 </table>
 
 
-## 3. How to use this repo
-We have bundled up the code from our tutorials to help you get started building marketplaces quickly. You can use the code in this repo out-of-the-box but we highly recommend familiarizing yourself with the codebase and tutorials so you can have a full understanding of how it works. This will make it easier for you to modify and customize your marketplace.
+## 5. Key Tech
 
-Below is an ordered list of tutorials with the files affected.
-<table>
-  <caption>Tutorials</caption>
-  <tr>
-    <th scope="col">Tutorial URL</th>
-    <th scope="col">Files Modified</th>
-  </tr>
-  <tr>
-    <td>https://shopify.dev/marketplaces/shop-discovery</td>
-    <td>pages/index.js - components/page.js</td>
-  </tr>
-  <tr>
-    <td>https://shopify.dev/marketplaces/shops</td>
-    <td>pages/shops/[id].js - pages/index.js - components/productGrid.js - pages/products/[shopid]/[producthandle].js</td>
-  </tr>
-  <tr>
-    <td>https://shopify.dev/marketplaces/cart-and-checkout</td>
-    <td>helpers/cartHelpers.js - components/page.js - pages/products/[shopid]/[productHandle].js - pages/cart.js
-  </tr>
-</table>
+- **Framework**: [Next.js](https://nextjs.org/) 12 with [React](https://reactjs.org/) 17
+- **UI Library**: [MUI (Material-UI)](https://mui.com/) v5
+- **Data Fetching**: [GraphQL](https://graphql.org/) with Apollo Client
+- **Unit Testing**: [Vitest](https://vitest.dev/) + [React Testing Library](https://testing-library.com/react)
+- **E2E Testing**: [Playwright](https://playwright.dev/) with [axe-core](https://www.deque.com/axe/) for accessibility
+- **CI/CD**: GitHub Actions
 
-
-## 4. Key tech
-- Main tech- frontend framework: [NextJS](https://nextjs.org/), which is a framework for [ReactJS](https://reactjs.org/) 
-- Main CSS library: [`MUI - Material UI`](https://mui.com/)  
-- Data fetching: [`GraphQL`](https://graphql.org/)
-- The Shopify API that provides store channel data: [`Storefront API`](https://shopify.dev/api/storefront#top)
-
-## 5. License
+## 6. License
 
 This repository is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

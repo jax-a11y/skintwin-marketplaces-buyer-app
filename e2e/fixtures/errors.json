@@ -1,0 +1,52 @@
+{
+  "graphqlError": {
+    "errors": [
+      {
+        "message": "Internal server error",
+        "locations": [{ "line": 1, "column": 1 }],
+        "path": ["shops"]
+      }
+    ],
+    "data": null
+  },
+  "networkError": {
+    "message": "Network request failed",
+    "name": "NetworkError"
+  },
+  "notFoundError": {
+    "errors": [
+      {
+        "message": "Shop not found",
+        "extensions": {
+          "code": "NOT_FOUND"
+        }
+      }
+    ],
+    "data": {
+      "shop": null
+    }
+  },
+  "validationError": {
+    "errors": [
+      {
+        "message": "Invalid input: shopId must be a positive integer",
+        "extensions": {
+          "code": "BAD_USER_INPUT"
+        }
+      }
+    ],
+    "data": null
+  },
+  "rateLimitError": {
+    "errors": [
+      {
+        "message": "Rate limit exceeded. Please try again later.",
+        "extensions": {
+          "code": "RATE_LIMITED",
+          "retryAfter": 60
+        }
+      }
+    ],
+    "data": null
+  }
+}

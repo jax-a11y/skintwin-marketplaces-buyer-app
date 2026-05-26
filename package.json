@@ -3,7 +3,7 @@
   "description": "SkinTwin AI Buyer-Facing Marketplace App - A Next.js marketplace frontend for the beauty-tech ecosystem",
   "private": true,
   "engines": {
-    "node": ">=18.0.0",
+    "node": ">=24.15.0",
     "yarn": ">=1.22.0"
   },
   "scripts": {

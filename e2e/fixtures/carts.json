@@ -1,0 +1,101 @@
+{
+  "carts": [
+    {
+      "id": "gid://shopify/Cart/1",
+      "checkoutUrl": "https://skinglow-essentials.myshopify.com/cart/c/1",
+      "estimatedCost": {
+        "subtotalAmount": {
+          "amount": "49.99",
+          "currencyCode": "USD"
+        },
+        "totalAmount": {
+          "amount": "49.99",
+          "currencyCode": "USD"
+        }
+      },
+      "lines": {
+        "edges": [
+          {
+            "node": {
+              "id": "gid://shopify/CartLine/1",
+              "quantity": 1,
+              "merchandise": {
+                "id": "gid://shopify/ProductVariant/1",
+                "image": {
+                  "originalSrc": "https://cdn.shopify.com/s/files/1/0000/0001/products/serum.jpg"
+                },
+                "priceV2": {
+                  "amount": "49.99",
+                  "currencyCode": "USD"
+                },
+                "product": {
+                  "title": "Hydrating Serum"
+                },
+                "selectedOptions": [
+                  { "name": "Size", "value": "30ml" }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "gid://shopify/Cart/2",
+      "checkoutUrl": "https://derma-naturals.myshopify.com/cart/c/2",
+      "estimatedCost": {
+        "subtotalAmount": {
+          "amount": "79.98",
+          "currencyCode": "CAD"
+        },
+        "totalAmount": {
+          "amount": "79.98",
+          "currencyCode": "CAD"
+        }
+      },
+      "lines": {
+        "edges": [
+          {
+            "node": {
+              "id": "gid://shopify/CartLine/2a",
+              "quantity": 2,
+              "merchandise": {
+                "id": "gid://shopify/ProductVariant/2a",
+                "image": {
+                  "originalSrc": "https://cdn.shopify.com/s/files/1/0000/0001/products/vitc-cream.jpg"
+                },
+                "priceV2": {
+                  "amount": "39.99",
+                  "currencyCode": "CAD"
+                },
+                "product": {
+                  "title": "Vitamin C Brightening Cream"
+                },
+                "selectedOptions": [
+                  { "name": "Size", "value": "50ml" }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "emptyCart": {
+    "id": "gid://shopify/Cart/empty",
+    "checkoutUrl": "https://example.myshopify.com/cart/c/empty",
+    "estimatedCost": {
+      "subtotalAmount": {
+        "amount": "0.00",
+        "currencyCode": "USD"
+      },
+      "totalAmount": {
+        "amount": "0.00",
+        "currencyCode": "USD"
+      }
+    },
+    "lines": {
+      "edges": []
+    }
+  }
+}

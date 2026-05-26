@@ -1,0 +1,40 @@
+{
+  "shops": [
+    {
+      "id": 1,
+      "domain": "skinglow-essentials.myshopify.com",
+      "name": "SkinGlow Essentials",
+      "storefrontAccessToken": "mock-token-skinglow",
+      "country": "US"
+    },
+    {
+      "id": 2,
+      "domain": "derma-naturals.myshopify.com",
+      "name": "Derma Naturals",
+      "storefrontAccessToken": "mock-token-derma",
+      "country": "CA"
+    },
+    {
+      "id": 3,
+      "domain": "beauty-science.myshopify.com",
+      "name": "Beauty Science Lab",
+      "storefrontAccessToken": "mock-token-beauty",
+      "country": "UK"
+    },
+    {
+      "id": 4,
+      "domain": "organic-skincare.myshopify.com",
+      "name": "Organic Skincare Co",
+      "storefrontAccessToken": "mock-token-organic",
+      "country": "US"
+    },
+    {
+      "id": 5,
+      "domain": "radiant-beauty.myshopify.com",
+      "name": "Radiant Beauty",
+      "storefrontAccessToken": "mock-token-radiant",
+      "country": "AU"
+    }
+  ],
+  "shopCountries": ["US", "CA", "UK", "AU"]
+}

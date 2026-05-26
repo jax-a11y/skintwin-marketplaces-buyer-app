@@ -23,6 +23,7 @@ import {
     setCartCount,
     updateItemCountInCart,
   } from "../../helpers/cartHelpers";
+  import { GRAPHQL_ENDPOINT, getStorefrontApiUrl } from "../../lib/config";
   
   export const SHOPS_QUERY = gql`
     query Shops($domains: [String]) {
@@ -126,7 +127,7 @@ import {
         const carts = getCarts();
   
         const client = new ApolloClient({
-          uri: `http://localhost:8081/graphql`,
+          uri: GRAPHQL_ENDPOINT,
           cache: new InMemoryCache(),
         });
   
@@ -150,7 +151,7 @@ import {
           };
   
           const shopClient = new ApolloClient({
-            uri: `https://${domain}/api/2021-10/graphql.json`,
+            uri: getStorefrontApiUrl(domain),
             headers: {
               "X-Shopify-Storefront-Access-Token": shop.storefrontAccessToken,
             },

@@ -50,12 +50,12 @@ const Page = ({ children, subHeader }) => {
                 alignItems="center"
               >
                 <NextLink href="/">
-                  <Link href=""><img src="/logo.svg" alt="Mockingbird" /></Link>
+                  <Link href="" data-testid="logo-link"><img src="/logo.svg" alt="SkinTwin" /></Link>
                 </NextLink>
                 <NextLink href="/cart">
-                  <Link href="/cart">
+                  <Link href="/cart" data-testid="cart-link">
                     <Box>
-                      <Badge badgeContent={cartCount} color="warning">
+                      <Badge badgeContent={cartCount} color="warning" data-testid="cart-badge">
                         <ShoppingCart color="primary" fontSize="large" />
                       </Badge>
                     </Box>
@@ -96,8 +96,8 @@ const Page = ({ children, subHeader }) => {
             pb: 4,
           }}
         >
-          <Link href="https://www.shopify.com/" target="_blank" rel="noopener"><img alt="Shopify" src="/shopify-logo.svg" /></Link>
-          <Typography textAlign="center" variant="body1">MockingBird is a Shopify demo that uses <span style={{fontWeight: 600}}>Marketplace Kit</span> to build <span style={{fontWeight: 600}}>Marketplaces</span></Typography>
+          <Link href="https://skintwin.ai/" target="_blank" rel="noopener"><img alt="SkinTwin AI" src="/logo.svg" style={{ height: "40px" }} /></Link>
+          <Typography textAlign="center" variant="body1">SkinTwin AI is a beauty-tech marketplace powered by <span style={{fontWeight: 600}}>AI-driven skin analysis</span> and <span style={{fontWeight: 600}}>personalized recommendations</span></Typography>
         </Stack>
       </footer>
     </>

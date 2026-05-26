@@ -8,7 +8,8 @@ const ProductTile = ({
   onlineStoreUrl,
   priceRange,
   shopId,
-  showLinks
+  showLinks,
+  productId
 }) => {
   const imgProps = image
     ? { src: image.originalSrc, alt: image.altText }
@@ -27,7 +28,7 @@ const ProductTile = ({
   }`;
 
   return (
-    <Stack flexDirection="column">
+    <Stack flexDirection="column" data-testid={`product-card-${productId}`}>
       <NextLink href={`/products/${shopId}/${handle}`}>
         <Link href={`/products/${shopId}/${handle}`}>
           <Stack
@@ -37,6 +38,7 @@ const ProductTile = ({
           >
             <img
               {...imgProps}
+              data-testid={`product-image-${productId}`}
               style={{
                 objectFit: "contain",
                 height: "300px",
@@ -47,8 +49,8 @@ const ProductTile = ({
         </Link>
       </NextLink>
       <Stack spacing={1} mt={2} alignItems="start">
-        <Typography variant="h3">{title}</Typography>
-        <Typography variant="body2" component="span">
+        <Typography variant="h3" data-testid={`product-title-${productId}`}>{title}</Typography>
+        <Typography variant="body2" component="span" data-testid={`product-price-${productId}`}>
           {priceString}
         </Typography>
         {showLinks && <>
@@ -70,18 +72,19 @@ const ProductTile = ({
    if (products.length === 0) {
     return (
       <Container m={2}>
-        <Typography variant="body2" align="center">
+        <Typography variant="body2" align="center" data-testid="no-products">
           No products
         </Typography>
       </Container>
     );
   }
   return (
-    <Grid container rowSpacing={6} columnSpacing={2} mb={2}>
+    <Grid container rowSpacing={6} columnSpacing={2} mb={2} data-testid="product-grid">
       {products.map((product) => (
         <Grid key={product.id} item xs={12} sm={6} md={12 / columns}>
           <ProductTile
             {...product}
+            productId={product.id}
             image={product.images.edges[0] && product.images.edges[0].node}
             shopId={shopId}
             showLinks={showLinks}

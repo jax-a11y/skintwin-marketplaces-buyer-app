@@ -18,6 +18,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useApolloClient } from "react-apollo";
 import { Page, ProductGrid } from "../../../components";
 import { addToCart, addToCartAndCheckout } from "../../../helpers/cartHelpers";
+import { getStorefrontApiUrl } from "../../../lib/config";
 
 const SHOP_QUERY = gql`
   query Shop($id: Int!) {
@@ -171,7 +172,7 @@ const Product = () => {
       });
 
       const shopGQLClient = new ApolloClient({
-        uri: `https://${data.shop.domain}/api/2021-10/graphql.json`,
+        uri: getStorefrontApiUrl(data.shop.domain),
         headers: {
           "X-Shopify-Storefront-Access-Token": data.shop.storefrontAccessToken,
         },

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jax-a11y/skintwin-ecosystem-design/main/schemas/ecosystem-manifest.schema.json",
+  "manifestVersion": "1.0",
+  "github": "jax-a11y/skintwin-marketplaces-buyer-app",
+  "layer": "commerce-surface",
+  "role": "marketplace-buyer",
+  "description": "Buyer-facing marketplace frontend (Next.js 12 + MUI + Apollo) for discovering multi-shop skincare products, adapted from Shopify Marketplace Kit.",
+  "designAlias": "business-directory-template / bus-listing (directory surface)",
+  "gatewayPrefix": null,
+  "provides": [],
+  "consumes": [
+    "marketplace-admin-graphql"
+  ],
+  "events": {
+    "publishes": [],
+    "subscribes": [
+      "product.updated"
+    ]
+  },
+  "ci": {
+    "workflows": [
+      "ci.yml (yarn, ESLint, next build)"
+    ],
+    "usesReusable": false
+  },
+  "registry": "https://github.com/jax-a11y/skintwin-ecosystem-design/blob/main/registry/ecosystem.json"
+}

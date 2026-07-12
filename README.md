@@ -166,3 +166,7 @@ Familiarize yourself with the code structure for the buyer-facing app.
 ## 6. License
 
 This repository is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Ecosystem
+
+This repo is part of the [SkinTwin-AI ecosystem](https://github.com/jax-a11y/skintwin-ecosystem-design) (layer: `commerce-surface`, role: `marketplace-buyer`). See [ECOSYSTEM.md](./ECOSYSTEM.md) for its contracts, events, and position in the wider architecture.

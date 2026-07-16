@@ -22,6 +22,24 @@ test.describe('Cart Page @smoke', () => {
   });
 
   test('should display cart header with item count', async ({ page }) => {
+    // The cart header only renders once the Shops query resolves; mock the
+    // response (as other tests in this suite do) so the smoke test does not
+    // depend on a running marketplace backend.
+    await page.route('**/graphql', async (route, request) => {
+      const postData = request.postDataJSON?.();
+      if (postData?.query?.includes('Shops')) {
+        await route.fulfill({
+          status: 200,
+          contentType: 'application/json',
+          body: JSON.stringify({
+            data: { shops: [] }
+          }),
+        });
+      } else {
+        await route.continue();
+      }
+    });
+
     await page.goto('/cart');
     await waitForPageLoad(page);
 

@@ -27,7 +27,14 @@ export async function waitForElement(
  */
 export async function clearLocalStorage(page: Page): Promise<void> {
   await page.evaluate(() => {
-    window.localStorage.clear();
+    try {
+      window.localStorage.clear();
+    } catch {
+      // localStorage is not accessible on about:blank (before the first
+      // navigation) because its opaque origin has no storage. A fresh
+      // Playwright context starts with empty storage, so there is nothing
+      // to clear in that case.
+    }
   });
 }
 
